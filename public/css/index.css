@@ -1,0 +1,41 @@
+/*----- Custom Properties -----*/
+:root {
+    --primary-purple: #992BE1;
+    --bg-color:#ececec;
+    --categories-buttons: #e4dbeb;
+  }
+
+body{
+    /* background: var(--primary-purple) */
+    
+
+}
+.navbar{
+    background-color: var(--primary-purple);
+
+}
+#cambiar_direccion div div{
+    background: var(--bg-color);
+}
+.p_direccion{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.wraper{
+    display: flex;
+    overflow-x: auto;
+    justify-content: space-between;
+}
+
+.wraper::-webkit-scrollbar{
+    width: 1;
+}
+
+.wraper .item{
+
+    min-width: 125px;
+    height: 125px;
+    margin: 10px;;
+}

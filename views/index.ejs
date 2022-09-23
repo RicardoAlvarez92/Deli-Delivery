@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/css/index.css">
+
+    <title>Deli</title>
+  </head>
+  <body>
+
+    <main>
+        <!-- 1.- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light shadow-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#"><img src="src/img/icon/moto.png" width="35"><strong class="m-3">Deli</strong></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="container-fluid">
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end ">
+                <li class="nav-item">
+                  <a class="nav-link text-white" aria-current="page" href="#">Iniciar Encargo</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="#">Quienes Somos</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  text-white" href="#" tabindex="-1" aria-disabled="true">Nuestro Trabajo</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <div id="pantalla_inicial" class="container-fluid text-white d-none">
+        <div class="row justify-content-center">
+          <h1 class=" col-12 text-center mt-3 mb-5">Inicia un nuevo Pedido</h1>
+          <div class="col-10 d-flex flex-column">
+            <label for="select_zona_entrega"><h5>Zona de entrega:</h5></label>
+            <select id="select_zona_entrega" class="form-select-lg" aria-label="Default select example">
+              <!-- Se cargan desde BD en js linea 16 index.js -->
+            </select> 
+
+            <label class="mt-5" for="input_direccion"><h5>Dirección de entrega:</h5></label>
+            <input id="input_direccion" class="form-control-lg" type="text" placeholder="Calle y Numero">
+
+            <div class="alert  container" role="alert" >
+              <div class="row bg-dark p-1 rounded mt-1">
+                <div class="col-10 lh-sm d-flex justify-content-center align-items-center p-1">
+                  La dirección debe coincidir con la zona de entrega, de lo contrario el repartidor no procedera con su pedido.
+                </div>
+                <div class="col-2 d-flex align-items-center">
+                  <img src="src/img/icon/alert.png" width="30">
+                </div>
+              </div>
+            </div>
+            <button id="btn_comenzar"class="btn btn-lg btn-warning mt-1">Comenzar</button>
+          </div>
+        </div>
+      </div>
+        <!--   -->
+     
+        <a id="cont_mostrar_direccion" href="#cambiar_direccion" data-bs-toggle="collapse" role="button" class="container text-decoration-none text-dark d-flex mt-3 d-none">
+            <img src="src/img/icon/ubicacion.png" alt="ubicacion" width="25" height="25">
+            <h5 class="p_direccion" ><!-- se coloca atraves de js con los datos del primer formulario llenado por el cliente--></h5>
+            <img src="src/img/icon/abajo2.png" alt="Desplegar" width="25" height="28">
+        </a>
+
+        <div id="cambiar_direccion" class="container collapse">
+          <div class="row justify-content-center">
+            <div class="col-10 d-flex flex-column p-4 rounded">
+              <label for="select_zona_zona_entrega">Zona de entrega:</label>
+              <select id="select_cambiar_zona_entrega" class="form-select-sm" aria-label="Default select example">
+                <!-- Se cargan desde BD en js linea 16 index.js -->
+              </select> 
+              <label class="mt-3" for="input_cambiar_direccion">Dirección de entrega:</label>
+              <input id="input_cambiar_direccion" class="form-control-sm" type="text" placeholder="Calle y Numero">  
+              <button id="btn_actualizar_direccion"class="btn btn-sm btn-warning mt-4">Guardar</button>
+            </div>
+          </div>
+        </div>
+      
+      <div class="container-fluid my-2">
+        <div class="row">
+          <h5 class="col-12">Categorias:</h5>  
+        </div>
+      </div>
+
+      <!-- Categories Menu -->
+      <div id="cont_categorias" class="wraper container-fluid p-0 my-2 ">
+        <!-- Se genera atravez de Js rellenando información desde la Bd -->
+      </div>
+
+      <div class="container-fluid my-3">
+        <div class="row">
+          <h5 class="col-12">Se muestra: <span class="fw-bold" id="cont_categoria_elegida">Postres</span></h5>  
+        </div>
+
+      <!-- Restaurantes-->
+      <div id="cont_restaurantes" class="container-fluid my-2">
+        
+        <!-- <button class="card btn my-3 p-0">
+          <div class="row g-0">
+            <div class="col-3">
+              <img src="src/img/front_page_rest/noimage.png" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-9">
+              <div class="card-body text-start ">
+                <h5 class="card-title">Little Caesar</h5>
+                <p class="card-text">Super Plaza Las Haciendas</p>
+              </div>
+            </div>
+          </div>
+        </button> -->
+
+
+      </div>
+    </main>
+
+    <div class="bg-dark text-secondary px-4 py-2 text-center mt-5 d-none">
+      <div class="py-5">
+        <h1 class="display-5 fw-bold text-white">Dark mode hero</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="fs-5 mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <button type="button" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">Custom button</button>
+            <button type="button" class="btn btn-outline-light btn-lg px-4">Secondary</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/js/index.js"></script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+  </body>
+</html>
